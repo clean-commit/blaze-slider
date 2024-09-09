@@ -16,7 +16,7 @@ export function handleAutoplay(slider: BlazeSlider) {
       () => {
         clearInterval(slider.autoplayTimer)
       },
-      { once: true }
+      { once: true, passive: true }
     )
   }
 }
