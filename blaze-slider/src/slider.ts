@@ -83,7 +83,7 @@ export class BlazeSlider extends Automata {
           ignoreResize = false
         }, 200)
       }
-    })
+    }, { passive: true })
   }
 
   next(count?: number) {

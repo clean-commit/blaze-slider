@@ -40,9 +40,9 @@ export function scrollPrev(slider: BlazeSlider, slideCount: number) {
     // reset should be done after the dragging is completed
     if (slider.isDragging) {
       if (isTouch()) {
-        slider.track.addEventListener('touchend', reset, { once: true })
+        slider.track.addEventListener('touchend', reset, { once: true, passive: true })
       } else {
-        slider.track.addEventListener('pointerup', reset, { once: true })
+        slider.track.addEventListener('pointerup', reset, { once: true, passive: true })
       }
     } else {
       rAf(reset)

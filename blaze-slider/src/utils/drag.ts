@@ -95,7 +95,7 @@ export function dragSupport(slider: BlazeSlider) {
   const event = isTouch() ? 'touchstart' : 'pointerdown'
 
   // @ts-expect-error
-  track.addEventListener(event, handlePointerDown)
+  track.addEventListener(event, handlePointerDown, { passive: true })
 
   // prevent click default when slider is being dragged or transitioning
   track.addEventListener(
@@ -109,11 +109,12 @@ export function dragSupport(slider: BlazeSlider) {
     },
     {
       capture: true,
+      passive: true,
     }
   )
 
   // prevent dragging of elements inside the slider
-  track.addEventListener('dragstart', preventDefault)
+  track.addEventListener('dragstart', preventDefault, { passive: true })
 }
 
 function updateEventListener(
